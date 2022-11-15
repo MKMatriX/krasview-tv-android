@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/action_audio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_baseline_audiotrack_24"
+        android:padding="16dp"
+        android:text="@string/track_audio"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/action_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_baseline_ondemand_video_24"
+        android:padding="16dp"
+        android:text="@string/track_video"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/action_subtitles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_baseline_subtitles_24"
+        android:padding="16dp"
+        android:text="@string/track_subtitle"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false" />
+</LinearLayout>

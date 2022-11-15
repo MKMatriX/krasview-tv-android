@@ -19,24 +19,6 @@
  *****************************************************************************/
 package org.videolan1.vlc.gui.audio;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-
-import org.videolan1.vlc.BitmapCache;
-import org.videolan1.vlc.Media;
-import org.videolan1.vlc.MurmurHash;
-import ru.krasview.tv.R;
-import org.videolan1.vlc.Util;
-import org.videolan1.vlc.VLCApplication;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -52,6 +34,25 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
+
+import org.videolan1.vlc.BitmapCache;
+import org.videolan1.vlc.Media;
+import org.videolan1.vlc.MurmurHash;
+import org.videolan1.vlc.Util;
+import org.videolan1.vlc.VLCApplication;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+
+import ru.krasview.tv.R;
 
 public class AudioUtil {
     public final static String TAG = "VLC/AudioUtil";

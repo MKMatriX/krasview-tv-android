@@ -1,9 +1,6 @@
 package ru.krasview.kvlib.interfaces;
 
-import ru.krasview.kvlib.interfaces.SearchInterface;
-import ru.krasview.kvlib.interfaces.ViewProposeListener;
-import ru.krasview.kvlib.interfaces.ViewPropotionerInterface;
-
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -15,6 +12,8 @@ ViewPropotionerInterface и SearchInterface, так и не реализующи
 Также позволяет содержащимся в Animator объектам View
 предлагать новый View-объект аниматору.
 */
+
+@SuppressLint("ViewConstructor")
 public class PropotionerView extends FrameLayout implements ViewPropotionerInterface, ViewProposeListener, SearchInterface {
 	private ViewProposeListener mViewProposeListener;
 	private ViewPropotionerInterface viewIntrerface;
