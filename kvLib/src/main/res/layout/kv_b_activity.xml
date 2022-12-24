@@ -39,19 +39,19 @@
         android:visibility="invisible"
         tools:visibility="visible"
         >
-        
-         <TextView
+
+        <TextView
             android:id="@+id/player_overlay_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:gravity="center"
             android:background="@drawable/video_list_length_bg"
+            android:gravity="center"
             android:padding="5dp"
             android:textSize="@dimen/text_size"
             android:visibility="invisible"
-            />
+            tools:visibility="visible" />
 
         <RelativeLayout
             android:id="@+id/player_overlay_header"

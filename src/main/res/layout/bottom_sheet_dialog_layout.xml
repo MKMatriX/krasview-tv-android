@@ -39,4 +39,16 @@
         android:text="@string/track_subtitle"
         android:textAlignment="viewStart"
         android:textAllCaps="false" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/action_speed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableStart="@drawable/ic_baseline_speed_24"
+        android:padding="16dp"
+        android:text="@string/track_speed"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false" />
 </LinearLayout>

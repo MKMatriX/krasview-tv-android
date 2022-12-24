@@ -3,6 +3,7 @@ package ru.krasview.tv.player
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.media.MediaPlayer
@@ -11,32 +12,23 @@ import android.net.Uri
 import android.preference.PreferenceManager
 import android.util.Log
 import android.view.*
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.appcompat.widget.PopupMenu
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.media3.common.*
 import androidx.media3.common.C.*
 import androidx.media3.common.text.CueGroup
 import androidx.media3.common.util.UnstableApi
-import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
-import androidx.media3.exoplayer.dash.DashMediaSource
-import androidx.media3.exoplayer.dash.DefaultDashChunkSource
-import androidx.media3.exoplayer.source.MediaSource
-import androidx.media3.exoplayer.source.MergingMediaSource
-import androidx.media3.exoplayer.source.ProgressiveMediaSource
-import androidx.media3.exoplayer.source.SingleSampleMediaSource
 import androidx.media3.exoplayer.trackselection.DefaultTrackSelector
-import androidx.media3.extractor.DefaultExtractorsFactory
-import androidx.media3.extractor.ts.DefaultTsPayloadReaderFactory
 import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
 import androidx.media3.ui.TrackSelectionDialogBuilder
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import ru.krasview.tv.R
 
 
 // todo: https://developer.android.com/codelabs/exoplayer-intro#0
@@ -145,6 +137,29 @@ class KExoPlayer(context: Context?, var StyledPlayerView: PlayerView) : SurfaceV
             }
             Log.d(TAG, "aspect ratio: $pref_aspect_ratio_video")
         }
+
+    private fun displaySpeedSelector(context: Context) {
+        val speed: Float = player?.playbackParameters?.speed ?: 1.0f
+        val id = ((speed - 0.5f) / 0.25).toInt()
+
+        AlertDialog.Builder(context)
+            .setTitle(R.string.select_speed)
+            .setIcon(R.drawable.ic_baseline_speed_24)
+            .setSingleChoiceItems(arrayOf("0.5x", "0.75x", "1x", "1.25x", "1.5x", "1.75x", "2x"), id, speedListener)
+            .setPositiveButton(android.R.string.ok) { _, _ -> }
+            .setNegativeButton(R.string.normal_speed, normalSpeedListener)
+            .create()
+            .show()
+    }
+
+    private val normalSpeedListener: (DialogInterface, Int) -> Unit = { a: DialogInterface, id: Int ->
+        player?.setPlaybackSpeed(1.0f)
+    }
+
+    private val speedListener: (DialogInterface, Int) -> Unit = { a: DialogInterface, id: Int ->
+        val newSpeed = 0.5f + (0.25f * id)
+        player?.setPlaybackSpeed(newSpeed)
+    }
 
     private fun displayTrackSelector(context: Context, trackType: Int = TRACK_TYPE_AUDIO) {
         val title = when (trackType) {
@@ -339,22 +354,27 @@ class KExoPlayer(context: Context?, var StyledPlayerView: PlayerView) : SurfaceV
 
     private fun showBottomSheetDialog() {
         val bottomSheetDialog = BottomSheetDialog(context)
-        bottomSheetDialog.setContentView(ru.krasview.tv.R.layout.bottom_sheet_dialog_layout)
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_layout)
         bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
 
-        val audio: View? = bottomSheetDialog.findViewById(ru.krasview.tv.R.id.action_audio)
-        val video: View? = bottomSheetDialog.findViewById(ru.krasview.tv.R.id.action_video)
-        val subtitles: View? = bottomSheetDialog.findViewById(ru.krasview.tv.R.id.action_subtitles)
+        val audio: View? = bottomSheetDialog.findViewById(R.id.action_audio)
+        val video: View? = bottomSheetDialog.findViewById(R.id.action_video)
+        val subtitles: View? = bottomSheetDialog.findViewById(R.id.action_subtitles)
+        val speed: View? = bottomSheetDialog.findViewById(R.id.action_speed)
 
         audio?.setOnClickListener { displayTrackSelector(context as VideoActivity, TRACK_TYPE_AUDIO); bottomSheetDialog.dismiss() }
         video?.setOnClickListener { displayTrackSelector(context as VideoActivity, TRACK_TYPE_VIDEO); bottomSheetDialog.dismiss() }
         subtitles?.setOnClickListener { displayTrackSelector(context as VideoActivity, TRACK_TYPE_TEXT); bottomSheetDialog.dismiss() }
+        speed?.setOnClickListener { displaySpeedSelector(context as VideoActivity); bottomSheetDialog.dismiss() }
 
         audio?.isGone = trackCount(TRACK_TYPE_AUDIO) < 2
         video?.isGone = trackCount(TRACK_TYPE_VIDEO) < 2
         subtitles?.isGone = trackCount(TRACK_TYPE_TEXT) < 2
 
-        if (audio?.isGone == false || video?.isGone == false || subtitles?.isGone == false)
+        if (audio?.isGone == false ||
+            video?.isGone == false ||
+            subtitles?.isGone == false ||
+            speed?.isGone == false)
              bottomSheetDialog.show()
     }
 

@@ -37,6 +37,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignTop="@+id/player_overlay_seekbar"
                 android:clickable="true"
+				android:textColor="@android:color/white"
                 android:gravity="left|center_vertical"
                 android:paddingRight="10dp"
                 android:text="@string/time_0"
@@ -64,6 +65,7 @@
                 android:clickable="true"
                 android:gravity="right|center_vertical"
                 android:paddingLeft="10dp"
+				android:textColor="@android:color/white"
                 android:text="@string/time_0"
                 android:textSize="@dimen/text_size_medium" />
         </RelativeLayout>

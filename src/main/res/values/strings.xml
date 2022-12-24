@@ -237,6 +237,9 @@
     <string name="set_locale_popup">Quit and reset VLC for changes to take effect.</string>
     <string name="quit">Quit application</string>
     <string name="track_subtitle">Субтитры</string>
+    <string name="track_speed">Скорость</string>
+    <string name="select_speed">Выберите скорость</string>
+    <string name="normal_speed">Обычная</string>
 
     <string-array name="deblocking_list">
         <item>@string/automatic</item>
