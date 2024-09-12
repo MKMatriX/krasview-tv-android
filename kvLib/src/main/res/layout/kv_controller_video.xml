@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:tools="http://schemas.android.com/tools">
     
     
      <TextView
@@ -35,9 +37,10 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignTop="@+id/player_overlay_seekbar"
                 android:clickable="true"
+				android:textColor="@android:color/white"
                 android:gravity="left|center_vertical"
                 android:paddingRight="10dp"
-                android:text="@string/time_0"               
+                android:text="@string/time_0"
                 android:textSize="@dimen/text_size_medium" />
 
             <SeekBar
@@ -62,6 +65,7 @@
                 android:clickable="true"
                 android:gravity="right|center_vertical"
                 android:paddingLeft="10dp"
+				android:textColor="@android:color/white"
                 android:text="@string/time_0"
                 android:textSize="@dimen/text_size_medium" />
         </RelativeLayout>
@@ -113,6 +117,15 @@
                 
             </FrameLayout>
 
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/player_overlay_audio"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+				android:background="@drawable/ic_baseline_settings_24"
+                android:visibility="gone"
+				app:tint="@color/white"
+				tools:visibility="visible"/>
+
             <ImageButton
                 android:id="@+id/player_overlay_size"
                 android:layout_width="40dip"
@@ -121,7 +134,7 @@
                 android:background="@drawable/ic_size" 
                 />
         </RelativeLayout>
-        
+
          <LinearLayout
             android:id="@+id/option_overlay"
             android:layout_width="wrap_content"
@@ -132,16 +145,6 @@
             android:orientation="vertical"
             android:paddingBottom="15dp" 
             >
-
-            <ImageButton
-                android:id="@+id/player_overlay_audio"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/header_icon_audio" 
-                android:visibility="gone"
-                />
 
             <ImageButton
                 android:id="@+id/player_overlay_subtitle"

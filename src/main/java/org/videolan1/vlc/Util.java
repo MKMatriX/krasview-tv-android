@@ -20,6 +20,25 @@
 
 package org.videolan1.vlc;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
+import android.preference.PreferenceManager;
+import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.Display;
+import android.view.WindowManager;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.videolan1.libvlc.LibVLC;
+import org.videolan1.libvlc.LibVlcException;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,25 +53,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.StringTokenizer;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.videolan1.libvlc.LibVLC;
-import org.videolan1.libvlc.LibVlcException;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Environment;
-import android.preference.PreferenceManager;
-import android.telephony.TelephonyManager;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 public class Util {
     public final static String TAG = "VLC/Util";

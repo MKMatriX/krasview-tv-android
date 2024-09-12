@@ -1,8 +1,5 @@
 package ru.krasview.tv;
 
-import ru.krasview.kvlib.indep.AuthAccount;
-import ru.krasview.kvlib.indep.consts.IntentConst;
-import ru.krasview.secret.ApiConst;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +8,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.CheckBox;
+
+import ru.krasview.kvlib.indep.AuthAccount;
+import ru.krasview.kvlib.indep.consts.IntentConst;
+import ru.krasview.kvsecret.secret.ApiConst;
 
 public class GuestAuthActivity extends Activity {
 	CheckBox box;//чек бокс "Не показывать больше это окно"

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     
-    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light" />
-  	<style name="Theme.MyTheme.NoTitleBar" parent="@android:style/Theme.Black.NoTitleBar" />
-    <style name="Theme.MyTheme.NoTitleBar.Fullscreen" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light" >
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
+  	<style name="Theme.MyTheme.NoTitleBar" parent="Theme.AppCompat.Light.NoActionBar" />
+    <style name="Theme.MyTheme.NoTitleBar.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar" />
     
     
-    <style name="info_dialog" parent="@android:style/Theme.Dialog">
+    <style name="info_dialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:windowIsFloating">true</item>
@@ -33,7 +36,7 @@
         <item name="android:windowBackground">@color/background_common</item>
     </style>
 
-    <style name="Theme.VLC.Basic" parent="android:Theme.Light">
+    <style name="Theme.VLC.Basic" parent="Theme.AppCompat.Light">
         <item name="item_divider">@color/item_divider</item>
         <item name="item_common_pressed">@color/item_common_pressed</item>
         <item name="item_common_selected">@color/item_common_selected</item>
@@ -50,7 +53,7 @@
         <item name="android:listSelector">@drawable/background_item</item>
     </style>
 
-    <style name="Theme.VLC.NoTitleBar" parent="android:Theme.Light.NoTitleBar">
+    <style name="Theme.VLC.NoTitleBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="item_divider">@color/item_divider</item>
         <item name="item_common_pressed">@color/item_common_pressed</item>
         <item name="item_common_selected">@color/item_common_selected</item>
@@ -63,7 +66,7 @@
         <item name="android:windowBackground">@color/background_common</item>
     </style>
 
-    <style name="Theme.VLC.Fullscreen" parent="android:Theme.NoTitleBar.Fullscreen">
+    <style name="Theme.VLC.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/black</item>
     </style>
 
@@ -72,7 +75,7 @@
         <item name="background">@drawable/actionbar_background</item>
     </style>
 
-    <style name="Theme.VLC.AlertMenu" parent="android:Theme.Dialog">
+    <style name="Theme.VLC.AlertMenu" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowBackground">@null</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowAnimationStyle">@null</item>

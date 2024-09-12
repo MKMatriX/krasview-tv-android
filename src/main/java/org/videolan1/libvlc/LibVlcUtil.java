@@ -20,6 +20,10 @@
 
 package org.videolan1.libvlc;
 
+import android.content.Context;
+import android.os.Build;
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,10 +33,6 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Locale;
-
-import android.content.Context;
-import android.os.Build;
-import android.util.Log;
 
 public class LibVlcUtil {
     public final static String TAG = "VLC/LibVLC/Util";

@@ -1,13 +1,13 @@
 package ru.krasview.kvlib.animator;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import ru.krasview.kvlib.interfaces.Factory;
 import ru.krasview.kvlib.interfaces.PropotionerView;

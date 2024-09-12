@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_menu_audio"
+        android:icon="@drawable/header_icon_audio"
+        android:title="@string/track_audio"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/item_menu_subtitle"
+        android:icon="@drawable/header_icon_subtitle"
+        android:title="@string/track_subtitle"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_menu_video"
+        android:icon="@drawable/header_icon_video"
+        android:title="@string/track_video"
+        app:showAsAction="never" />
+</menu>

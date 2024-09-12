@@ -1,18 +1,29 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    apply plugin: 'com.android.library'
-
     android {
-        compileSdkVersion = 27
+        compileSdkVersion = 33
+        defaultConfig {
+            minSdkVersion 19
+            targetSdkVersion 33
+        }
     }
 
     useLibrary  'org.apache.http.legacy'
 }
 
+def mediaVersion = "1.0.0-beta02"
+
 dependencies {
-    api project(':kvSecret')
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation "androidx.media3:media3-exoplayer:$mediaVersion"
+    implementation "androidx.media3:media3-ui:$mediaVersion"
+    implementation "androidx.media3:media3-exoplayer-dash:$mediaVersion"
+
+    implementation 'androidx.appcompat:appcompat:1.7.0-alpha01'
     api files('libs/universal-image-loader-1.9.3.jar')
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation project(path: ':kvSecret')
 }

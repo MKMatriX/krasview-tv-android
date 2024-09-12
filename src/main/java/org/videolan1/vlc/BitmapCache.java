@@ -24,8 +24,8 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.LruCache;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.View;
 
 public class BitmapCache {

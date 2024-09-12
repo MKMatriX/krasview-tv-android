@@ -21,20 +21,19 @@
 package org.videolan1.vlc;
 
 
-
-import java.util.HashSet;
-import java.util.Locale;
+import android.content.Context;
+import android.database.sqlite.SQLiteFullException;
+import android.graphics.Bitmap;
+import android.util.Log;
 
 import org.videolan1.libvlc.LibVLC;
 import org.videolan1.libvlc.LibVlcException;
 import org.videolan1.libvlc.TrackInfo;
 
-import ru.krasview.tv.R;
+import java.util.HashSet;
+import java.util.Locale;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteFullException;
-import android.graphics.Bitmap;
-import android.util.Log;
+import ru.krasview.tv.R;
 
 public class Media implements Comparable<Media> {
 
